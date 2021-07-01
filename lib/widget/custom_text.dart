@@ -40,10 +40,8 @@ class CustomText extends StatefulWidget {
 class _CustomTextState extends State<CustomText> {
   @override
   Widget build(BuildContext context) {
-    // ignore: unnecessary_this
     final Text textWidget = Text(
       this.widget.text,
-      // ignore: unnecessary_this
       textAlign: this.widget.textAlign,
       overflow: widget.isSingleLine ? TextOverflow.ellipsis : null,
       maxLines: widget.maxLines,

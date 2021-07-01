@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
 
 Color primaryColor = Colors.blue;
+Color accentColor = Colors.blueAccent;
 
 Color getColorIndex(int idx) {
   switch (idx) {
+    // case 1:
+    //   return primaryColor = Colors.redAccent
+    //   accentColor = Colors.black;
+
     case 1:
       return Colors.red;
+
     case 2:
-      return Colors.orange;
+      return Colors.indigo;
+    case 3:
+      return Colors.lightBlue;
+    case 4:
+      return Colors.brown;
+    case 5:
+      return Colors.green;
+    case 6:
+      return Colors.pink;
+    case 7:
+      return Colors.purple;
+    case 7:
+      return Colors.yellow;
   }
   return Colors.blue;
 }

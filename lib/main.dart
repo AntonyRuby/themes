@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:themes/screen/theme/bloc/theme_data_bloc.dart';
 import 'package:themes/screen/transaction_screen/transaction_screen.dart';
 import 'package:themes/widget/config.dart';
 import 'screen/theme/bloc/themes_bloc.dart';
@@ -35,13 +36,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Themes',
-      debugShowCheckedModeBanner: false,
-      theme: CustomTheme.lightTheme,
-      darkTheme: CustomTheme.darkTheme,
-      themeMode: currentTheme.currentTheme,
-      home: TransactionScreen(),
+    return BlocProvider(
+      create: (context) => ThemeDataBloc(),
+      child: MaterialApp(
+        title: 'Themes',
+        debugShowCheckedModeBanner: false,
+        theme: CustomTheme.lightTheme,
+        darkTheme: CustomTheme.darkTheme,
+        themeMode: currentTheme.currentTheme,
+        home: TransactionScreen(),
+      ),
     );
   }
 }

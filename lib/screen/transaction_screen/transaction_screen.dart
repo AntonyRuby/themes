@@ -19,9 +19,11 @@ class _TransactionScreenState extends State<TransactionScreen> {
   Future getColor() async {
     preferences = await SharedPreferences.getInstance();
     int? idx = preferences!.getInt('color');
-    primaryColor = getColorIndex(idx!);
+    // primaryColor = getColorIndex(idx!);
     setState(() {});
   }
+
+  List<Widget> _widgetOptions = <Widget>[TransactionScreen(), ThemesScreen()];
 
   @override
   void initState() {
@@ -132,9 +134,11 @@ class _TransactionScreenState extends State<TransactionScreen> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: selectedIndex,
-        onTap: (index) => setState(() {
-          selectedIndex = index;
-        }),
+        onTap: (index) => setState(
+          () {
+            selectedIndex = index;
+          },
+        ),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.add_circle),
@@ -149,7 +153,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.color_lens),
+            icon: Icon(Icons.comment_bank),
             label: 'Colors',
           ),
         ],

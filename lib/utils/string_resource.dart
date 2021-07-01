@@ -6,4 +6,6 @@ class StringResource {
   static const String balance = 'Balance';
   static const String lastTransaction = 'Last transaction';
   static const String changeTheme = 'Change Theme';
+  static const String selectColors = 'Select Colors';
+  static const String darkLight = 'Dark/Light';
 }

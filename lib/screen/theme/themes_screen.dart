@@ -26,7 +26,10 @@ class _ThemesScreenState extends State<ThemesScreen> {
             onPressed: () {
               Navigator.pop(context);
             }),
-        title: CustomText(StringResource.changeTheme, color: Colors.white),
+        title: CustomText(
+          StringResource.changeTheme,
+          // color: Theme.of(context).primaryColor,
+        ),
       ),
       body: SafeArea(
         child: Column(
@@ -34,40 +37,80 @@ class _ThemesScreenState extends State<ThemesScreen> {
             ListTile(
               title: Center(
                   child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text("Dark/Light"),
-              )),
+                      padding: const EdgeInsets.all(16.0),
+                      child: CustomText(
+                        StringResource.darkLight,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                      ))),
               subtitle: GestureDetector(
                   onTap: () => currentTheme.toggleTheme(),
                   child: Icon(Icons.invert_colors)),
             ),
-            Divider(),
             Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text("Select Colors"),
+              padding: const EdgeInsets.all(8.0),
+              child: Divider(),
             ),
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: CustomText(
+                  StringResource.selectColors,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
+                )),
             Wrap(
               alignment: WrapAlignment.end,
-              spacing: 10,
-              runSpacing: 12,
+              spacing: 20,
+              runSpacing: 22,
               children: [
                 _colorSelection(Colors.red, onTap: () {
+                  primaryColor = Colors.red;
                   setColor(1);
                   setState(() {});
                 }),
-                _colorSelection(
-                  Colors.indigo,
-                  onTap: () {
-                    setColor(2);
-                    setState(() {});
-                  },
-                ),
-                _colorSelection(Colors.lightBlue),
-                _colorSelection(Colors.red),
-                _colorSelection(Colors.green),
-                _colorSelection(Colors.pink),
-                _colorSelection(Colors.purple),
-                _colorSelection(Colors.yellow),
+                // _colorSelection(
+                //   Colors.indigo,
+                //   onTap: () {
+                //     setState(() {
+                //       CustomTheme.blueTheme;
+                //     });
+                //   },
+                // ),
+                _colorSelection(Colors.indigo, onTap: () {
+                  primaryColor = Colors.indigo;
+                  setColor(2);
+                  setState(() {});
+                }),
+                _colorSelection(Colors.lightBlue, onTap: () {
+                  primaryColor = Colors.lightBlue;
+                  setColor(3);
+                  setState(() {});
+                }),
+                _colorSelection(Colors.brown, onTap: () {
+                  primaryColor = Colors.brown;
+                  setColor(4);
+                  setState(() {});
+                }),
+                _colorSelection(Colors.green, onTap: () {
+                  primaryColor = Colors.green;
+                  setColor(4);
+                  setState(() {});
+                }),
+                _colorSelection(Colors.pink, onTap: () {
+                  primaryColor = Colors.pink;
+                  setColor(5);
+                  setState(() {});
+                }),
+                _colorSelection(Colors.purple, onTap: () {
+                  primaryColor = Colors.purple;
+                  setColor(6);
+                  setState(() {});
+                }),
+                _colorSelection(Colors.yellow, onTap: () {
+                  primaryColor = Colors.yellow;
+                  setColor(7);
+                  setState(() {});
+                }),
               ],
             ),
           ],
@@ -80,8 +123,8 @@ class _ThemesScreenState extends State<ThemesScreen> {
     return GestureDetector(
       onTap: onTap,
       child: new Container(
-        width: 50,
-        height: 50,
+        width: 70,
+        height: 70,
         decoration: new BoxDecoration(
           color: customColor,
           shape: BoxShape.circle,

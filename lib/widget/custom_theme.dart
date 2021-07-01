@@ -5,7 +5,8 @@ import 'constants.dart';
 class CustomTheme with ChangeNotifier {
   static bool _isDarkTheme = true;
   ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
-  ThemeMode get blueTheme => _isDarkTheme ? ThemeMode.dark : blueTheme;
+  // ThemeMode get blueTheme =>
+  //     _isDarkTheme ? ThemeMode.dark : ThemeMode.blueTheme;
 
   void toggleTheme() {
     _isDarkTheme = !_isDarkTheme;
@@ -22,7 +23,7 @@ class CustomTheme with ChangeNotifier {
           hintStyle: TextStyle(color: Colors.black),
           labelStyle: TextStyle(color: Colors.black),
         ),
-        brightness: Brightness.light,
+        // brightness: Brightness.light,
         canvasColor: Colors.black,
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -59,12 +60,11 @@ class CustomTheme with ChangeNotifier {
               headline6: TextStyle(),
               subtitle2: TextStyle(),
             ).apply(
-              bodyColor: Colors.white,
-              displayColor: Colors.white,
-            )),
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
+                decorationColor: Colors.white)),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-        ),
+            backgroundColor: Colors.white, selectedItemColor: Colors.black),
         buttonTheme: ButtonThemeData(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0)),
@@ -111,47 +111,47 @@ class CustomTheme with ChangeNotifier {
                 borderRadius: BorderRadius.circular(18.0)),
             buttonColor: Colors.white));
   }
+
+  static ThemeData get blueTheme {
+    return ThemeData(
+        primaryColor: Colors.blue,
+        scaffoldBackgroundColor: Colors.blue,
+        // fontFamily: 'Montserrat',
+        accentColor: Colors.white,
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: TextStyle(color: Colors.white),
+          labelStyle: TextStyle(color: Colors.white),
+        ),
+        canvasColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        accentIconTheme: IconThemeData(color: Colors.white),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(),
+          bodyText2: TextStyle(),
+          caption: TextStyle(),
+          headline1: TextStyle(),
+          subtitle1: TextStyle(),
+          headline2: TextStyle(),
+          headline3: TextStyle(),
+          headline4: TextStyle(),
+          headline5: TextStyle(),
+          headline6: TextStyle(),
+          subtitle2: TextStyle(),
+        ).apply(
+          bodyColor: Colors.orange,
+          displayColor: Colors.white,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.blue,
+        ),
+        buttonTheme: ButtonThemeData(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0)),
+            buttonColor: Colors.white));
+  }
 }
-//   static ThemeData get blueTheme {
-//     return ThemeData(
-//         primaryColor: Colors.blue,
-//         scaffoldBackgroundColor: Colors.blue,
-//         // fontFamily: 'Montserrat',
-//         accentColor: Colors.white,
-//         inputDecorationTheme: InputDecorationTheme(
-//           hintStyle: TextStyle(color: Colors.white),
-//           labelStyle: TextStyle(color: Colors.white),
-//         ),
-//         canvasColor: Colors.white,
-//         iconTheme: IconThemeData(
-//           color: Colors.white,
-//         ),
-//         accentIconTheme: IconThemeData(color: Colors.white),
-//         textTheme: TextTheme(
-//           bodyText1: TextStyle(),
-//           bodyText2: TextStyle(),
-//           caption: TextStyle(),
-//           headline1: TextStyle(),
-//           subtitle1: TextStyle(),
-//           headline2: TextStyle(),
-//           headline3: TextStyle(),
-//           headline4: TextStyle(),
-//           headline5: TextStyle(),
-//           headline6: TextStyle(),
-//           subtitle2: TextStyle(),
-//         ).apply(
-//           bodyColor: Colors.orange,
-//           displayColor: Colors.white,
-//         ),
-//         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-//           backgroundColor: Colors.blue,
-//         ),
-//         buttonTheme: ButtonThemeData(
-//             shape: RoundedRectangleBorder(
-//                 borderRadius: BorderRadius.circular(18.0)),
-//             buttonColor: Colors.white));
-//   }
-// }
 
 // /// ----  Blue Theme  ----
 // final bluePrimary = Color(0xFF3F51B5);
