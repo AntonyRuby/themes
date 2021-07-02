@@ -1,293 +1,514 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
-
 class CustomTheme with ChangeNotifier {
-  static bool _isDarkTheme = true;
-  ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
-  // ThemeMode get blueTheme =>
-  //     _isDarkTheme ? ThemeMode.dark : ThemeMode.blueTheme;
+  // static bool _isDarkTheme = true;
+  // ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
+  // // ThemeMode get blueTheme =>
+  // //     _isDarkTheme ? ThemeMode.dark : ThemeMode.blueTheme;
 
-  void toggleTheme() {
-    _isDarkTheme = !_isDarkTheme;
-    notifyListeners();
+  // void toggleTheme() {
+  //   _isDarkTheme = !_isDarkTheme;
+  //   notifyListeners();
+  // }
+
+  static Map<String, ThemeData> get themes {
+    return {
+      'pinkTheme': CustomTheme._pinkTheme,
+      'greenTheme': CustomTheme._greenTheme,
+      'redTheme': CustomTheme._redTheme,
+      'blackTheme': CustomTheme._blackTheme,
+      'indigoTheme': CustomTheme._indigoTheme,
+      'blueTheme': CustomTheme._blueTheme,
+      'purpleTheme': CustomTheme._purpleTheme,
+      'yellowTheme': CustomTheme._yellowTheme,
+      'brownTheme': CustomTheme._brownTheme,
+    };
   }
 
-  static ThemeData get lightTheme {
-    return ThemeData(
-        primaryColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        // fontFamily: 'Montserrat',
-        accentColor: Colors.black,
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: TextStyle(color: Colors.black),
-          labelStyle: TextStyle(color: Colors.black),
-        ),
-        // brightness: Brightness.light,
-        canvasColor: Colors.black,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
-        accentIconTheme: IconThemeData(color: Colors.black),
-        textTheme: TextTheme(
-          bodyText1: TextStyle(),
-          bodyText2: TextStyle(),
-          caption: TextStyle(),
-          headline1: TextStyle(),
-          subtitle1: TextStyle(),
-          headline2: TextStyle(),
-          headline3: TextStyle(),
-          headline4: TextStyle(),
-          headline5: TextStyle(),
-          headline6: TextStyle(),
-          subtitle2: TextStyle(),
-        ).apply(
-          bodyColor: Colors.black,
-          displayColor: Colors.black,
-        ),
-        appBarTheme: AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.white),
-            textTheme: TextTheme(
-              bodyText1: TextStyle(),
-              bodyText2: TextStyle(),
-              caption: TextStyle(),
-              headline1: TextStyle(),
-              subtitle1: TextStyle(),
-              headline2: TextStyle(),
-              headline3: TextStyle(),
-              headline4: TextStyle(),
-              headline5: TextStyle(),
-              headline6: TextStyle(),
-              subtitle2: TextStyle(),
-            ).apply(
-                bodyColor: Colors.white,
-                displayColor: Colors.white,
-                decorationColor: Colors.white)),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            backgroundColor: Colors.white, selectedItemColor: Colors.black),
-        buttonTheme: ButtonThemeData(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
-            buttonColor: Colors.black));
-  }
+  static ThemeData defaultTheme = CustomTheme._blackTheme;
 
-  static ThemeData get darkTheme {
-    return ThemeData(
-        primaryColor: Colors.black,
-        scaffoldBackgroundColor: Colors.black,
-        // fontFamily: 'Montserrat',
-        accentColor: Colors.white,
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: TextStyle(color: Colors.white),
-          labelStyle: TextStyle(color: Colors.white),
-        ),
-        brightness: Brightness.dark,
-        canvasColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-        accentIconTheme: IconThemeData(color: Colors.white),
-        textTheme: TextTheme(
-          bodyText1: TextStyle(),
-          bodyText2: TextStyle(),
-          caption: TextStyle(),
-          headline1: TextStyle(),
-          subtitle1: TextStyle(),
-          headline2: TextStyle(),
-          headline3: TextStyle(),
-          headline4: TextStyle(),
-          headline5: TextStyle(),
-          headline6: TextStyle(),
-          subtitle2: TextStyle(),
-        ).apply(
-          bodyColor: Colors.orange,
-          displayColor: Colors.blue,
-        ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.black,
-        ),
-        buttonTheme: ButtonThemeData(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
-            buttonColor: Colors.white));
-  }
+  static ThemeData _pinkTheme = ThemeData(
+      primaryColor: Colors.pink.shade300,
+      scaffoldBackgroundColor: Colors.pink.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.pinkAccent.shade700,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.black),
+        labelStyle: TextStyle(color: Colors.black),
+      ),
+      // brightness: Brightness.light,
+      canvasColor: Colors.black,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.white,
+        displayColor: Colors.white,
+      ),
+      floatingActionButtonTheme:
+          FloatingActionButtonThemeData(backgroundColor: Colors.pinkAccent),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.pink.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+              decorationColor: Colors.white)),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.pink,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.black),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.pink,
+      ),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.pink));
 
-  static ThemeData get blueTheme {
-    return ThemeData(
-        primaryColor: Colors.blue,
-        scaffoldBackgroundColor: Colors.blue,
-        // fontFamily: 'Montserrat',
-        accentColor: Colors.white,
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: TextStyle(color: Colors.white),
-          labelStyle: TextStyle(color: Colors.white),
-        ),
-        canvasColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-        accentIconTheme: IconThemeData(color: Colors.white),
-        textTheme: TextTheme(
-          bodyText1: TextStyle(),
-          bodyText2: TextStyle(),
-          caption: TextStyle(),
-          headline1: TextStyle(),
-          subtitle1: TextStyle(),
-          headline2: TextStyle(),
-          headline3: TextStyle(),
-          headline4: TextStyle(),
-          headline5: TextStyle(),
-          headline6: TextStyle(),
-          subtitle2: TextStyle(),
-        ).apply(
-          bodyColor: Colors.orange,
-          displayColor: Colors.white,
-        ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.blue,
-        ),
-        buttonTheme: ButtonThemeData(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
-            buttonColor: Colors.white));
-  }
+  static ThemeData _blackTheme = ThemeData(
+      primaryColor: Colors.black,
+      scaffoldBackgroundColor: Colors.black,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.white,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      brightness: Brightness.dark,
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.white,
+        displayColor: Colors.white,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.black,
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.black,
+      ),
+      buttonTheme: ButtonThemeData(
+          textTheme: ButtonTextTheme.normal,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.blue));
+
+  static ThemeData _blueTheme = ThemeData(
+      primaryColor: Colors.blue.shade300,
+      scaffoldBackgroundColor: Colors.blue.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.blueAccent.shade700,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.white,
+        displayColor: Colors.white,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.blue,
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.blue.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+              decorationColor: Colors.white)),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.white),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.blue,
+      ));
+
+  static ThemeData _greenTheme = ThemeData(
+      primaryColor: Colors.green.shade300,
+      scaffoldBackgroundColor: Colors.green.shade100,
+
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.greenAccent,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme().apply(
+        bodyColor: Colors.white,
+        displayColor: Colors.white,
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.green.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              // bodyColor: Colors.green,
+              displayColor: Colors.yellow,
+              decorationColor: Colors.green)),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.green,
+      ),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.white));
+
+  static ThemeData _redTheme = ThemeData(
+      primaryColor: Colors.red.shade500,
+      scaffoldBackgroundColor: Colors.red.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.redAccent,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.pink,
+        displayColor: Colors.white,
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.red.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+              decorationColor: Colors.white)),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.red,
+      ),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.white));
+
+  static ThemeData _brownTheme = ThemeData(
+      primaryColor: Colors.brown.shade300,
+      scaffoldBackgroundColor: Colors.red.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.redAccent,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.green,
+        displayColor: Colors.white,
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.brown.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+              decorationColor: Colors.white)),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.red,
+      ),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.white));
+
+  static ThemeData _yellowTheme = ThemeData(
+      primaryColor: Colors.yellow.shade300,
+      scaffoldBackgroundColor: Colors.red.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.redAccent,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.green,
+        displayColor: Colors.white,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.yellow,
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.yellow.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+              decorationColor: Colors.white)),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.white));
+
+  static ThemeData _indigoTheme = ThemeData(
+      primaryColor: Colors.indigo.shade300,
+      scaffoldBackgroundColor: Colors.indigo.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.redAccent,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.green,
+        displayColor: Colors.white,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.indigo,
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.indigo,
+      ),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.indigo));
+
+  static ThemeData _purpleTheme = ThemeData(
+      primaryColor: Colors.purple.shade300,
+      scaffoldBackgroundColor: Colors.purple.shade100,
+      // fontFamily: 'Montserrat',
+      accentColor: Colors.redAccent,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white),
+      ),
+      canvasColor: Colors.white,
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+      accentIconTheme: IconThemeData(color: Colors.white),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(),
+        bodyText2: TextStyle(),
+        caption: TextStyle(),
+        headline1: TextStyle(),
+        subtitle1: TextStyle(),
+        headline2: TextStyle(),
+        headline3: TextStyle(),
+        headline4: TextStyle(),
+        headline5: TextStyle(),
+        headline6: TextStyle(),
+        subtitle2: TextStyle(),
+      ).apply(
+        bodyColor: Colors.green,
+        displayColor: Colors.white,
+      ),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.purple.shade500,
+          iconTheme: IconThemeData(color: Colors.white),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+            caption: TextStyle(),
+            headline1: TextStyle(),
+            subtitle1: TextStyle(),
+            headline2: TextStyle(),
+            headline3: TextStyle(),
+            headline4: TextStyle(),
+            headline5: TextStyle(),
+            headline6: TextStyle(),
+            subtitle2: TextStyle(),
+          ).apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+              decorationColor: Colors.white)),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.red,
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.purple,
+      ),
+      buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: Colors.purple));
 }
-
-// /// ----  Blue Theme  ----
-// final bluePrimary = Color(0xFF3F51B5);
-// final blueAccent = Color(0xFFFF9800);
-// final blueBackground = Color(0xFFFFFFFF);
-// final blueTheme = ThemeData(
-//     primaryColor: bluePrimary,
-//     accentColor: blueAccent,
-//     backgroundColor: blueBackground);
-
-// /// ----  Spooky Theme  ----
-// final spookyPrimary = Color(0xFF000000);
-// final spookyAccent = Color(0xFFBB86FC);
-// final spookyBackground = Color(0xFF4A4A4A);
-// final spookyTheme = ThemeData(
-//   primaryColor: spookyPrimary,
-//   accentColor: spookyAccent,
-//   backgroundColor: spookyBackground,
-// );
-
-// /// ----  Green Theme  ----
-// final greenPrimary = Color(0xFF4CAF50);
-// final greenAccent = Color(0xFF631739);
-// final greenBackground = Color(0xFFFFFFFF);
-// final greenTheme = ThemeData(
-//     primaryColor: greenPrimary,
-//     accentColor: greenAccent,
-//     backgroundColor: greenBackground);
-
-// /// ----  Pink Theme  ----
-// final pinkPrimary = Color(0xFFE91E63);
-// final pinkAccent = Color(0xFF0C7D9C);
-// final pinkBackground = Color(0xFFFFFFFF);
-// final pinkTheme = ThemeData(
-//     primaryColor: pinkPrimary,
-//     accentColor: pinkAccent,
-//     backgroundColor: pinkBackground);
-
-// import 'package:flutter/material.dart';
-
-// enum MyThemeKeys { LIGHT, DARK, DARKER }
-
-// class MyThemes {
-//   static final ThemeData lightTheme = ThemeData(
-//     primaryColor: Colors.blue,
-//     brightness: Brightness.light,
-//   );
-
-//   static final ThemeData darkTheme = ThemeData(
-//     primaryColor: Colors.grey,
-//     brightness: Brightness.dark,
-//   );
-
-//   static final ThemeData darkerTheme = ThemeData(
-//     primaryColor: Colors.black,
-//     brightness: Brightness.dark,
-//   );
-
-//   static ThemeData getThemeFromKey(MyThemeKeys themeKey) {
-//     switch (themeKey) {
-//       case MyThemeKeys.LIGHT:
-//         return lightTheme;
-//       case MyThemeKeys.DARK:
-//         return darkTheme;
-//       case MyThemeKeys.DARKER:
-//         return darkerTheme;
-//       default:
-//         return lightTheme;
-//     }
-//   }
-// }
-
-// class _CustomTheme extends InheritedWidget {
-//   final CustomThemeState data;
-
-//   _CustomTheme({
-//     this.data,
-//     Key key,
-//     @required Widget child,
-//   }) : super(key: key, child: child);
-
-//   @override
-//   bool updateShouldNotify(_CustomTheme oldWidget) {
-//     return true;
-//   }
-// }
-
-// class CustomTheme extends StatefulWidget {
-//   final Widget child;
-//   final MyThemeKeys initialThemeKey;
-
-//   const CustomTheme({
-//     Key key,
-//     this.initialThemeKey,
-//     @required this.child,
-//   }) : super(key: key);
-
-//   @override
-//   CustomThemeState createState() => new CustomThemeState();
-
-//   static ThemeData of(BuildContext context) {
-//     _CustomTheme inherited =
-//         (context.dependOnInheritedWidgetOfExactType<_CustomTheme());
-//     (context.dependOnInheritedWidgetOfExactType<_CustomTheme>());
-//     return inherited.data.theme;
-//   }
-
-//   static CustomThemeState instanceOf(BuildContext context) {
-//     _CustomTheme inherited =
-//         (context.dependOnInheritedWidgetOfExactType<_CustomTheme>());
-//     return inherited.data;
-//   }
-// }
-
-// class CustomThemeState extends State<CustomTheme> {
-//   ThemeData _theme;
-
-//   ThemeData get theme => _theme;
-
-//   @override
-//   void initState() {
-//     _theme = MyThemes.getThemeFromKey(widget.initialThemeKey);
-//     super.initState();
-//   }
-
-//   void changeTheme(MyThemeKeys themeKey) {
-//     setState(() {
-//       _theme = MyThemes.getThemeFromKey(themeKey);
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return new _CustomTheme(
-//       data: this,
-//       child: widget.child,
-//     );
-//   }
-// }

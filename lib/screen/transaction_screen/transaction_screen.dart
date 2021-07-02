@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:themes/screen/theme/themes_screen.dart';
 import 'package:themes/utils/color_resource.dart';
 import 'package:themes/utils/string_resource.dart';
-import 'package:themes/widget/constants.dart';
 import 'package:themes/widget/custom_text.dart';
 
 SharedPreferences? preferences;
@@ -14,24 +12,6 @@ class TransactionScreen extends StatefulWidget {
 }
 
 class _TransactionScreenState extends State<TransactionScreen> {
-  int selectedIndex = 0;
-
-  Future getColor() async {
-    preferences = await SharedPreferences.getInstance();
-    int? idx = preferences!.getInt('color');
-    // primaryColor = getColorIndex(idx!);
-    setState(() {});
-  }
-
-  List<Widget> _widgetOptions = <Widget>[TransactionScreen(), ThemesScreen()];
-
-  @override
-  void initState() {
-    super.initState();
-
-    getColor();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,12 +33,12 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     fontSize: 14,
                   ),
                   trailing: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ThemesScreen()));
-                    },
+                    // onTap: () {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => ThemesScreen()));
+                    // },
                     child: Icon(
                       Icons.account_circle,
                       size: 30,
@@ -118,7 +98,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                         child: CustomText(
                           StringResource.amazon,
                           fontSize: 16,
-                          color: ColorResource.white,
                         ),
                       ),
                     ),
@@ -129,55 +108,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: selectedIndex,
-        onTap: (index) => setState(
-          () {
-            selectedIndex = index;
-          },
-        ),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle),
-            label: 'Add',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.comment_bank),
-            label: 'Colors',
-          ),
-        ],
-      ),
     );
   }
 }
-
-// class RadiantGradientMask extends StatelessWidget {
-//   RadiantGradientMask({required this.child});
-//   final Widget child;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ShaderMask(
-//       shaderCallback: (Rect bounds) {
-//         return RadialGradient(
-//           center: Alignment.bottomLeft,
-//           radius: 0.5,
-//           colors: <Color>[Colors.black, Colors.amberAccent],
-//           tileMode: TileMode.mirror,
-//         ).createShader(bounds);
-//       },
-//       child: child,
-//     );
-//   }
-// }

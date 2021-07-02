@@ -8,7 +8,7 @@ class CustomText extends StatefulWidget {
   final String text;
   final double fontSize;
   final Font font;
-  final Color color;
+  final Color? color;
   final double lineHeight;
   final TextAlign textAlign;
   final GestureTapCallback? onTap;
@@ -23,7 +23,7 @@ class CustomText extends StatefulWidget {
       this.fontStyle = FontStyle.normal,
       this.fontSize = FontSize.eighteen,
       this.font = Font.poppinsRegular,
-      this.color = ColorResource.black,
+      this.color,
       this.lineHeight = 1.21, // Line Height - 17
       this.textAlign = TextAlign.left,
       this.onTap,
@@ -49,7 +49,7 @@ class _CustomTextState extends State<CustomText> {
           decoration: widget.isUnderLine
               ? TextDecoration.underline
               : TextDecoration.none,
-          color: Theme.of(context).accentColor,
+          // color: widget.color ?? Theme.of(context).textTheme.,
           fontFamily: widget.font.value,
           fontSize: widget.fontSize,
           height: widget.lineHeight,
